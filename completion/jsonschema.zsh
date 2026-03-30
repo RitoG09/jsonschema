@@ -18,6 +18,7 @@ _jsonschema() {
     'canonicalize:Transform a schema into a canonical form'
     'encode:Encode JSON using JSON BinPack'
     'decode:Decode JSON using JSON BinPack'
+    'compatibility:Compare two schema versions for compatibility'
     'codegen:Generate code from a JSON Schema'
     'install:Fetch and install external schema dependencies'
     'version:Print version information'

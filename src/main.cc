@@ -133,6 +133,12 @@ Commands:
        verify dependencies against the lock file without modifying it,
        intended for CI/CD environments.
 
+   compatibility <old-schema.json> <new-schema.json> [--format/-f]
+
+       Check whether the new schema introduces breaking changes relative
+       to the old schema. Requires both files to be passed.
+       Output result as human, json, compatible.
+
 For more documentation, visit https://github.com/sourcemeta/jsonschema
 )EOF"};
 
@@ -240,6 +246,11 @@ auto jsonschema_main(const std::string &program, const std::string &command,
   } else if (command == "version" || command == "--version" ||
              command == "-v") {
     std::cout << sourcemeta::jsonschema::PROJECT_VERSION << "\n";
+    return EXIT_SUCCESS;
+  } else if (command == "compatibility") {
+    app.option("format",{"f"});
+    app.parse(argc,argv, {.skip = 1});
+    sourcemeta::jsonschema::compatibility(app);
     return EXIT_SUCCESS;
   } else {
     throw sourcemeta::jsonschema::UnknownCommandError{command};

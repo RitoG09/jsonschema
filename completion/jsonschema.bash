@@ -11,7 +11,7 @@ _jsonschema() {
     previous=""
   fi
 
-  commands="validate metaschema compile test fmt lint bundle inspect canonicalize encode decode codegen install version help"
+  commands="validate metaschema compile test fmt lint bundle inspect canonicalize encode decode compatibility codegen install version help"
 
   global_options="--verbose -v --resolve -r --default-dialect -d --json -j --http -h --debug -g"
 
